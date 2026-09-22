@@ -1,6 +1,7 @@
 # Projeto P4 — Um Problema, Quatro Paradigmas
 
-**Disciplina:** Paradigmas de Programação — PUC-GO··
+**Disciplina:** Paradigmas de Programação — PUC-GO
+
 **Aluno:** Guilherme José Miranda Santos
 
 Este repositório reúne as soluções de um mesmo problema — **agendamento de
@@ -20,6 +21,7 @@ para um novo atendimento e validar as operações de agendar, cancelar e remarca
 — sempre com justificativa da decisão.
 
 Descrição completa: [`docs/problema.md`](docs/problema.md)
+
 Especificação formal: [`docs/especificacao.md`](docs/especificacao.md)
 
 ---
@@ -27,6 +29,7 @@ Especificação formal: [`docs/especificacao.md`](docs/especificacao.md)
 ## Etapas
 
 - `[P4-ETAPA-01]` — Proposta do problema
+- `[P4-ETAPA-02]` — Contrato semântico e testes ([`testes/casos.md`](testes/casos.md))
 
 ---
 
@@ -35,8 +38,8 @@ Especificação formal: [`docs/especificacao.md`](docs/especificacao.md)
 ```
 ├── README.md
 ├── docs/
-│   ├── problema.md         
-│   ├── especificacao.md    
+│   ├── problema.md
+│   ├── especificacao.md
 │   ├── decisoes.md
 │   └── comparacao-final.md
 ├── testes/
