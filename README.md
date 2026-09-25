@@ -30,6 +30,7 @@ Especificação formal: [`docs/especificacao.md`](docs/especificacao.md)
 
 - `[P4-ETAPA-01]` — Proposta do problema
 - `[P4-ETAPA-02]` — Contrato semântico e testes ([`testes/casos.md`](testes/casos.md))
+- `[P4-ETAPA-03]` — Implementação imperativa ([`imperativo/`](imperativo/))
 
 ---
 
@@ -45,6 +46,10 @@ Especificação formal: [`docs/especificacao.md`](docs/especificacao.md)
 ├── testes/
 │   └── casos.md
 ├── imperativo/
+│   ├── agenda.c
+│   ├── agenda.h
+│   ├── imperativo.c
+│   └── decisoes.md
 ├── poo/
 ├── funcional/
 ├── logico/
@@ -52,6 +57,19 @@ Especificação formal: [`docs/especificacao.md`](docs/especificacao.md)
 ```
 
 ---
+
+## Como executar
+
+### Imperativo (C)
+
+Dentro da pasta `imperativo/`:
+
+make            compila (gcc -Wall -Wextra -std=c99 -pedantic)
+./agenda        abre o menu em modo texto
+make testar     roda os 15 casos de teste da Etapa 02
+
+Arquivos: `agenda.h` (structs, constantes e assinaturas), `agenda.c` (datas e
+horas, cadastro, regras e operações) e `main.c` (telas e casos de teste).
 
 ## Paradigmas e linguagens
 
