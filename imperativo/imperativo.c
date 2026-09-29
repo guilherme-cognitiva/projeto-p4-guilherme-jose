@@ -65,12 +65,12 @@ static int casoServicoLongo(void)
     int i = 0;
 
     carregarCadastro(&sistema);
-    resultado = agendar(&sistema, "C1", "P1", "S2", dia(29, 9, 2026), 13 * 60);
+    resultado = agendar(&sistema, "C1", "P1", "S2", dia(5, 10, 2026), 13 * 60);
     if (!resultado.aceito) {
         return 0;
     }
 
-    total = consultarDisponibilidade(&sistema, "P1", "S1", dia(29, 9, 2026), horarios, &motivo);
+    total = consultarDisponibilidade(&sistema, "P1", "S1", dia(5, 10, 2026), horarios, &motivo);
     for (i = 0; i < total; i++) {
         if (horarios[i] >= 13 * 60 && horarios[i] < 14 * 60 + 30) {
             return 0;
@@ -84,7 +84,7 @@ static int casoCancelar(void)
     Resultado agendado;
     Resultado cancelado;
     carregarCadastro(&sistema);
-    agendado = agendar(&sistema, "C1", "P1", "S1", dia(29, 9, 2026), 14 * 60);
+    agendado = agendar(&sistema, "C1", "P1", "S1", dia(5, 10, 2026), 14 * 60);
     cancelado = cancelar(&sistema, "AG-0002");
     return agendado.aceito && cancelado.aceito;
 }
@@ -94,7 +94,7 @@ static int casoRemarcar(void)
     Resultado resultado;
     int indice = 0;
     carregarCadastro(&sistema);
-    resultado = remarcar(&sistema, "AG-0001", dia(29, 9, 2026), 15 * 60);
+    resultado = remarcar(&sistema, "AG-0001", dia(5, 10, 2026), 15 * 60);
     indice = buscarAgendamento(&sistema, "AG-0001");
     return resultado.aceito && sistema.agendamentos[indice].inicio == 15 * 60;
 }
@@ -105,7 +105,7 @@ static int casoAgendaDoDia(void)
     Motivo motivo = SEM_MOTIVO;
     int total = 0;
     carregarCadastro(&sistema);
-    total = agendaDoDia(&sistema, "P1", dia(29, 9, 2026), indices, &motivo);
+    total = agendaDoDia(&sistema, "P1", dia(5, 10, 2026), indices, &motivo);
     if (total != 1) {
         return 0;
     }
@@ -117,8 +117,8 @@ static int casoClienteOcupado(void)
     Resultado primeiro;
     Resultado segundo;
     carregarCadastro(&sistema);
-    primeiro = agendar(&sistema, "C1", "P1", "S1", dia(29, 9, 2026), 15 * 60);
-    segundo = agendar(&sistema, "C1", "P2", "S3", dia(29, 9, 2026), 15 * 60 + 15);
+    primeiro = agendar(&sistema, "C1", "P1", "S1", dia(5, 10, 2026), 15 * 60);
+    segundo = agendar(&sistema, "C1", "P2", "S3", dia(5, 10, 2026), 15 * 60 + 15);
     return primeiro.aceito && !segundo.aceito && segundo.motivo == CONFLITO_CLIENTE;
 }
 
@@ -127,12 +127,12 @@ static int casoDiaSemExpediente(void)
     int horarios[MAX_HORARIOS];
     Motivo motivo = SEM_MOTIVO;
     carregarCadastro(&sistema);
-    return consultarDisponibilidade(&sistema, "P2", "S1", dia(30, 9, 2026), horarios, &motivo) == 0;
+    return consultarDisponibilidade(&sistema, "P2", "S1", dia(6, 10, 2026), horarios, &motivo) == 0;
 }
 
 int executarTestes(void)
 {
-    Data hoje = dia(29, 9, 2026);
+    Data hoje = dia(5, 10, 2026);
     falhas = 0;
 
     printf("=== CASOS DE TESTE DA ETAPA 02 ===\n\n-- Casos normais --\n");
